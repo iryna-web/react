@@ -8,7 +8,8 @@ class ContactItem extends Component{
         phone: '097-844-66-34',
         email:'mike.tyson@gmail.com',
         avatar: 16,
-        gender: 'men'
+        gender: 'men',
+        star: false
     }
 onRandomAvatar=()=>{
     const avatar = Math.floor(Math.random()*Math.floor(99))
@@ -16,10 +17,30 @@ onRandomAvatar=()=>{
         avatar:avatar
     })
 }
+StarChange=()=>{
+    if(this.state.star===false){
+        this.setState({
+            star:true
+        })
+    }
+    else if(this.state.star===true){
+        this.setState({
+            star:false
+        })
+    }
+}
 
     render(){
         const{name, adress, phone, email, avatar, gender}=this.state
+        let {star}=this.state
         const url=`https://api.randomuser.me/portraits/${gender}/${avatar}.jpg`;
+        if(star===false){
+            star="far fa-star" 
+        }
+        else if(star===true){
+            star="fas fa-star"
+        }
+          
             return(
                 <Fragment>
                 <li className="list-group-item">
@@ -44,6 +65,7 @@ onRandomAvatar=()=>{
                             </div>
                         </li>
                         <button className="btn btn-success" onClick={this.onRandomAvatar}> Random avatar</button>
+                        <i className={star} onClick={this.StarChange}></i>
                         </Fragment>
         )
     }

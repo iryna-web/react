@@ -1,3 +1,11 @@
 h2{
     color: indigo;
 }
+i{
+    position: relative;
+    top: -140px;
+    left: 1038px;
+}
+.fas{
+    color: orange;
+}
