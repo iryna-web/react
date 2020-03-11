@@ -3,13 +3,13 @@ import './contactItem.css';
 
 class ContactItem extends Component{
     state={
-        name: 'Mike Tyson ',
-        adress: 'Stepana Bandery street, Harlem',
-        phone: '097-844-66-34',
-        email:'mike.tyson@gmail.com',
-        avatar: 16,
-        gender: 'men',
-        star: false
+        name: this.props.name,
+        adress: this.props.adress,
+        phone: this.props.phone,
+        email: this.props.email,
+        avatar: this.props.avatar,
+        gender: this.props.gender,
+        star: this.props.star
     }
 onRandomAvatar=()=>{
     const avatar = Math.floor(Math.random()*Math.floor(99))
